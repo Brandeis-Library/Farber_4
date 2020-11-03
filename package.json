@@ -1,0 +1,19 @@
+{
+  "name": "farber_4",
+  "version": "1.0.0",
+  "description": "A project update the work order status of the list of items that are assumed damaged in Farber 4.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alma",
+    "exlibris",
+    "work",
+    "orders",
+    "status",
+    "scan-in"
+  ],
+  "author": "Chris Underwood, Library Applications Developer, Brandeis University",
+  "license": "MIT"
+}
