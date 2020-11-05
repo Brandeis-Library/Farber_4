@@ -15,5 +15,8 @@
     "scan-in"
   ],
   "author": "Chris Underwood, Library Applications Developer, Brandeis University",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
