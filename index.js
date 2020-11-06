@@ -45,3 +45,26 @@
 
 // status
 // 05VENDOR
+
+const axios = require('axios');
+const dotenv = require('dotenv');
+dotenv.config();
+
+(async function () {
+  try {
+    //item retrieve query to Alma backend. API URL, Item Barcode, and APIKEY
+    const { data } = await axios.get(
+      process.env.EXLIBRIS_API_ROOT +
+        process.env.EXLIBRIS_API_PATH +
+        'B2175667' +
+        '&apikey=' +
+        process.env.EXLIBRIS_API_BIB_GET_KEY +
+        '&expand=p_avail'
+    );
+
+    //returning the data object to the front end so we can show scanned item.
+    console.log('item retrieve from bibs by barcode', data);
+  } catch (error) {
+    console.log('retreiveItemErrorAPI Error:   ', error.message);
+  }
+})();

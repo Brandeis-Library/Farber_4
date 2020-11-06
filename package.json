@@ -17,6 +17,7 @@
   "author": "Chris Underwood, Library Applications Developer, Brandeis University",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.0",
     "dotenv": "^8.2.0"
   }
 }
