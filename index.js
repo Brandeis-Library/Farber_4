@@ -56,14 +56,23 @@ dotenv.config();
     const { data } = await axios.get(
       process.env.EXLIBRIS_API_ROOT +
         process.env.EXLIBRIS_API_PATH +
-        'B2175667' +
+        '0123501424626' +
         '&apikey=' +
         process.env.EXLIBRIS_API_BIB_GET_KEY +
         '&expand=p_avail'
     );
+    // record fields needed to indentify & update the records
+    const mms_id = data.bib_data.mms_id;
+    const holding_id = data.holding_data.holding_id;
+    const pid = data.item_data.pid;
 
     //returning the data object to the front end so we can show scanned item.
     console.log('item retrieve from bibs by barcode', data);
+    console.log('mms_id --- ', mms_id);
+    console.log('holding_id --- ', holding_id);
+    console.log('pid_id --- ', pid);
+
+    // item update in the sandbox using the scan-in API
   } catch (error) {
     console.log('retreiveItemErrorAPI Error:   ', error.message);
   }
