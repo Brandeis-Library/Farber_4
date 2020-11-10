@@ -1,11 +1,8 @@
-// URL for sandbox
-// https://brandeis-psb.alma.exlibrisgroup.com/mng/login?auth=SAML
-
 // API to be used is scan-in under the Bib Records & Inventory section
 // Documentation
 // https://developers.exlibrisgroup.com/alma/apis/docs/bibs/UE9TVCAvYWxtYXdzL3YxL2JpYnMve21tc19pZH0vaG9sZGluZ3Mve2hvbGRpbmdfaWR9L2l0ZW1zL3tpdGVtX3BpZH0=/
 
-// Sandbox URL
+// API URL
 // https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/{mms_id}/holdings/{holding_id}/items/{item_pid}
 
 // Sandbox API KEY
@@ -29,13 +26,13 @@
 // false  (true or false)
 
 // request_id
-// Not needed.
+// farber4
 
 // library
 //  MAIN
 
 // circ desk
-//  No circ desk for this search
+//  %20
 
 // despartment
 // PRESDEPT
@@ -72,8 +69,16 @@ dotenv.config();
     console.log('holding_id --- ', holding_id);
     console.log('pid_id --- ', pid);
 
+    const postResponse = await axios.post(
+      `https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/${mms_id}/holdings/${holding_id}/items/${pid}?op=scan&external_id=false&request_id=1&library=MAIN&circ_desk=%20&department=DEFAULT_CIRC_DESK-MAINREPAIR&work_order_type=MAINREPAIR&status=INPROGRESS&done=false&auto_print_slip=false&place_on_hold_shelf=false&confirm=tree&register_in_house_use=true&apikey=${process.env.SANDBOX_SCAN_IN_API_KEY}`
+    );
+
+    console.log(
+      'postResponse ************************************** ',
+      postResponse
+    );
     // item update in the sandbox using the scan-in API
   } catch (error) {
-    console.log('retreiveItemErrorAPI Error:   ', error.message);
+    console.log('retreiveItemErrorAPI Error:   ', error);
   }
 })();
