@@ -43,6 +43,8 @@
 // status
 // 05VENDOR
 
+// Per conversation with Mark P on 11/11/20 this project is to convert to scan-in only to barcode and request_id to scan in items. We also need a web front end that can upload a file with these 2 columns and process them.
+
 const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -70,7 +72,7 @@ dotenv.config();
     console.log('pid_id --- ', pid);
 
     const postResponse = await axios.post(
-      `https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/${mms_id}/holdings/${holding_id}/items/${pid}?op=scan&external_id=false&request_id=1&library=MAIN&circ_desk=%20&department=DEFAULT_CIRC_DESK-MAINREPAIR&work_order_type=MAINREPAIR&status=INPROGRESS&done=false&auto_print_slip=false&place_on_hold_shelf=false&confirm=tree&register_in_house_use=true&apikey=${process.env.SANDBOX_SCAN_IN_API_KEY}`
+      `https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/${mms_id}/holdings/${holding_id}/items/${pid}?op=scan&external_id=false&request_id=%20&library=MAIN&circ_desk=%20&department=DEFAULT_CIRC_DESK-MAINREPAIR&work_order_type=MAINREPAIR&status=INPROGRESS&done=false&auto_print_slip=false&place_on_hold_shelf=false&confirm=tree&register_in_house_use=true&apikey=${process.env.SANDBOX_SCAN_IN_API_KEY}`
     );
 
     console.log(
